@@ -98,11 +98,14 @@ def status_for_cluster_detail(_status):
                 if sc['type'] != 'Ready':
                     if sc['status'] == 'False':
                         icon = 'checkbox-marked-circle-outline'
+                        klass = 'text-success'
                     else:
                         icon = 'checkbox-blank-circle-outline'
+                        klass = 'text-danger'
                     node_status.append({
                         'type': sc['type'],
-                        'icon': icon
+                        'icon': icon,
+                        'class': klass
                     })
             _ram = int(node['status']['allocatable']['memory'].replace('Ki', '')) / 1000000
             ram = '{:.2f}'.format(_ram)
